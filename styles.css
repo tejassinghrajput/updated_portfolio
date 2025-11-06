@@ -156,6 +156,20 @@ body {
     padding: 2rem;
     position: relative;
     overflow: hidden;
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero::before {
@@ -168,6 +182,37 @@ body {
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
     background-size: cover;
     opacity: 0.5;
+    animation: waveMove 20s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-50px) translateY(-20px);
+    }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .hero-content {
@@ -310,11 +355,26 @@ section {
     border-radius: 15px;
     color: var(--white);
     transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
 }
 
 .stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .stat-number {
@@ -495,10 +555,27 @@ section {
     box-shadow: var(--shadow-md);
     transition: var(--transition-fast);
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) rotateY(5deg);
     box-shadow: var(--shadow-xl);
     border-color: var(--primary-color);
 }
@@ -614,7 +691,9 @@ section {
 .skill-tag:hover {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    animation: bounce 0.6s ease;
 }
 
 /* Achievements Section */
@@ -635,10 +714,29 @@ section {
     text-align: center;
     transition: var(--transition-fast);
     box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.achievement-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-card:hover::after {
+    opacity: 1;
 }
 
 .achievement-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.05);
     box-shadow: var(--shadow-xl);
 }
 
@@ -646,6 +744,12 @@ section {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: var(--transition-fast);
+}
+
+.achievement-card:hover .achievement-icon {
+    transform: rotateY(360deg) scale(1.2);
+    transition: transform 0.6s ease;
 }
 
 .achievement-title {
@@ -724,6 +828,97 @@ section {
     padding: 2rem 0;
 }
 
+/* Floating Shapes */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.shape:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.shape:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+    animation-duration: 30s;
+}
+
+.shape:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 4s;
+    animation-duration: 20s;
+}
+
+.shape:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 70%;
+    animation-delay: 1s;
+    animation-duration: 28s;
+}
+
+.shape:nth-child(5) {
+    width: 90px;
+    height: 90px;
+    top: 50%;
+    left: 5%;
+    animation-delay: 3s;
+    animation-duration: 22s;
+}
+
+.shape:nth-child(6) {
+    width: 70px;
+    height: 70px;
+    top: 30%;
+    left: 50%;
+    animation-delay: 5s;
+    animation-duration: 26s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-100px) rotate(90deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-200px) rotate(180deg);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(-100px) rotate(270deg);
+        opacity: 0.5;
+    }
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -755,6 +950,35 @@ section {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
     }
 }
 

@@ -196,3 +196,152 @@ scrollTopBtn.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     updateActiveLink();
 });
+
+// Parallax effect for floating shapes
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const shapes = document.querySelectorAll('.shape');
+    
+    shapes.forEach((shape, index) => {
+        const speed = (index + 1) * 0.5;
+        shape.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
+
+// Add mouse move parallax effect to hero section
+const hero = document.querySelector('.hero');
+if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+        const shapes = document.querySelectorAll('.shape');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 20;
+            const xMove = (x - 0.5) * speed;
+            const yMove = (y - 0.5) * speed;
+            shape.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        });
+    });
+}
+
+// Add typing effect to hero title
+const heroTitle = document.querySelector('.hero-title');
+if (heroTitle) {
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    heroTitle.style.opacity = '1';
+    
+    let charIndex = 0;
+    const typingSpeed = 100;
+    
+    function typeWriter() {
+        if (charIndex < text.length) {
+            heroTitle.textContent += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeWriter, typingSpeed);
+        }
+    }
+    
+    setTimeout(typeWriter, 500);
+}
+
+// Add glowing effect on card hover
+const cards = document.querySelectorAll('.project-card, .skill-category, .achievement-card, .education-card');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const glow = document.createElement('div');
+        glow.style.position = 'absolute';
+        glow.style.left = x + 'px';
+        glow.style.top = y + 'px';
+        glow.style.width = '0px';
+        glow.style.height = '0px';
+        glow.style.borderRadius = '50%';
+        glow.style.background = 'radial-gradient(circle, rgba(102,126,234,0.3) 0%, transparent 70%)';
+        glow.style.pointerEvents = 'none';
+        glow.style.transform = 'translate(-50%, -50%)';
+        glow.style.transition = 'width 0.5s ease, height 0.5s ease';
+        glow.style.zIndex = '0';
+        
+        this.style.position = 'relative';
+        this.appendChild(glow);
+        
+        setTimeout(() => {
+            glow.style.width = '300px';
+            glow.style.height = '300px';
+        }, 10);
+        
+        setTimeout(() => {
+            glow.remove();
+        }, 600);
+    });
+});
+
+// Staggered animation for skill tags
+const observeSkillTags = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const tags = entry.target.querySelectorAll('.skill-tag');
+            tags.forEach((tag, index) => {
+                setTimeout(() => {
+                    tag.style.opacity = '1';
+                    tag.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+            observeSkillTags.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.skill-tags').forEach(container => {
+    container.querySelectorAll('.skill-tag').forEach(tag => {
+        tag.style.opacity = '0';
+        tag.style.transform = 'translateY(20px)';
+        tag.style.transition = 'all 0.3s ease';
+    });
+    observeSkillTags.observe(container);
+});
+
+// Enhanced button animations
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(btn => {
+    btn.addEventListener('mouseenter', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s ease-out';
+        ripple.style.pointerEvents = 'none';
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Add ripple animation style
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
