@@ -3,43 +3,330 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejas Kumar Singh - Software Development Engineer</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">TKS</div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-    <section id="home">
-        <h1>Welcome to My Professional Portfolio</h1>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Tejas Kumar Singh</h1>
+            <h2 class="hero-subtitle">Software Development Engineer - I</h2>
+            <p class="hero-description">Passionate about building scalable backend systems and creating innovative solutions</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+            <div class="social-links">
+                <a href="tel:+917652050611" aria-label="Phone" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="mailto:singhtejas0001@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/tejassinghrajput" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/tejas-kumar-singh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
     </section>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Placeholder content about you.</p>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    I'm a passionate Software Development Engineer at ShipGlobal with expertise in backend development. 
+                    I specialize in building scalable microservices, designing RESTful APIs, and optimizing legacy systems. 
+                    My work focuses on creating efficient, maintainable solutions that drive business impact. 
+                    With a strong foundation in Java, PHP, and JavaScript, I've successfully delivered multiple high-impact 
+                    projects that have significantly improved operational efficiency and reduced support overhead.
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">90.30%</div>
+                        <div class="stat-label">Academic Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>Placeholder content about your skills.</p>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2025 – Present</div>
+                        <h3 class="timeline-title">Software Development Engineer - I</h3>
+                        <h4 class="timeline-company">ShipGlobal, New Delhi</h4>
+                        <ul class="timeline-description">
+                            <li>Developed scalable Tracking Microservice, reducing support tickets by 70%</li>
+                            <li>Restructured legacy codebase into modular HMVC architecture</li>
+                            <li>Built admin features: Wallet Adjustment, SLA Report, NDR Report</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2024 – June 2025</div>
+                        <h3 class="timeline-title">Backend Developer Intern</h3>
+                        <h4 class="timeline-company">ShipGlobal, New Delhi</h4>
+                        <ul class="timeline-description">
+                            <li>Designed RESTful APIs for Multibox/Singlebox modules, improving efficiency by 80%</li>
+                            <li>Led backend development of Shipment, Bagging, Pickup & Manifest modules</li>
+                            <li>Built scalable KYC microservice, reducing onboarding time by 80%</li>
+                            <li>Integrated Shopify and Walmart APIs, reducing manual workload by 95%</li>
+                            <li>Monitored production logs, achieving 99% reduction in runtime issues</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Placeholder content about your projects.</p>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="education-degree">B.Tech in Computer Science Engineering</h3>
+                    <h4 class="education-institution">Galgotias University</h4>
+                    <div class="education-date">Oct 2021 – May 2025</div>
+                    <div class="education-grade">90.30%</div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="education-degree">CBSE Intermediate</h3>
+                    <h4 class="education-institution">CBSE Board</h4>
+                    <div class="education-date">Aug 2020 – May 2021</div>
+                    <div class="education-grade">61.80%</div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Placeholder content on how to contact you.</p>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-shopping-cart project-icon"></i>
+                        <h3 class="project-title">E-Commerce System</h3>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Fully responsive platform with product listings, wishlist, feedback, secure checkout</li>
+                        <li>MySQL for inventory, MongoDB for user logs</li>
+                        <li>Tested on 100+ records, mobile-first UX</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-comment-medical project-icon"></i>
+                        <h3 class="project-title">Medical Chatbot</h3>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Google Gemini API</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">OAuth</span>
+                    </div>
+                    <ul class="project-description">
+                        <li>Symptom-based health suggestions with OAuth 2.0</li>
+                        <li>200+ conversations stored, tested with 50+ users</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-    <footer>
-        <p>© 2023 Your Name. All rights reserved.</p>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-layer-group"></i> Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">CodeIgniter 4</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-tools"></i> Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">GCP Cloud Run</span>
+                        <span class="skill-tag">GCP Cloud SQL</span>
+                        <span class="skill-tag">Vercel</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-cogs"></i> Others</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">MVC Architecture</span>
+                        <span class="skill-tag">Linux CLI</span>
+                        <span class="skill-tag">Debugging</span>
+                        <span class="skill-tag">API Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class="fas fa-trophy achievement-icon"></i>
+                    <h3 class="achievement-title">Team Mentor</h3>
+                    <p class="achievement-description">Mentored "Sparks" team in college hackathon</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-users achievement-icon"></i>
+                    <h3 class="achievement-title">Placement Coordinator</h3>
+                    <p class="achievement-description">Student Placement Coordinator for 100+ peers</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-user-graduate achievement-icon"></i>
+                    <h3 class="achievement-title">Class Representative</h3>
+                    <p class="achievement-description">Served as Class Representative</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-certificate achievement-icon"></i>
+                    <h3 class="achievement-title">Mastering DSA</h3>
+                    <p class="achievement-description">GeeksforGeeks (June 2024)</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-certificate achievement-icon"></i>
+                    <h3 class="achievement-title">Problem Solving</h3>
+                    <p class="achievement-description">HackerRank (November 2022)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p class="contact-description">
+                    I'm always interested in hearing about new opportunities and projects. 
+                    Feel free to reach out if you'd like to connect!
+                </p>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <h3 class="contact-title">Phone</h3>
+                        <a href="tel:+917652050611" class="contact-link">+91-7652050611</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h3 class="contact-title">Email</h3>
+                        <a href="mailto:singhtejas0001@gmail.com" class="contact-link">singhtejas0001@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fab fa-github contact-icon"></i>
+                        <h3 class="contact-title">GitHub</h3>
+                        <a href="https://github.com/tejassinghrajput" target="_blank" rel="noopener noreferrer" class="contact-link">tejassinghrajput</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <h3 class="contact-title">LinkedIn</h3>
+                        <a href="https://linkedin.com/in/tejas-kumar-singh" target="_blank" rel="noopener noreferrer" class="contact-link">tejas-kumar-singh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tejas Kumar Singh. All rights reserved.</p>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
